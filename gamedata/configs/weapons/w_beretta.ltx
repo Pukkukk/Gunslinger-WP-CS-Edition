@@ -1,0 +1,272 @@
+[wpn_beretta]:identity_immunities,weapon_probability,default_weapon_params
+GroupControlSection		= spawn_group
+discovery_dependency 		=
+$spawn                  	= "weapons\beretta" ; option for Level Editor
+$npc			 	= on		    ; option for Level Editor
+$prefetch 			= 8
+scheduled         		= off               ; option for ALife Simulator
+cform             		= skeleton
+class                   	= WP_PM
+min_radius              	= 5
+max_radius               	= 30
+description			= st_wpn_beretta_descr
+
+ef_weapon_type			= 5
+
+control_inertion_factor	= 1
+;---DOF-------------------------------------------------------------------------
+zoom_dof			= -1000, 1.0, 1000
+reload_dof		        = 0.0, 0.5, 5, 2.5
+
+upgrades                = up_gr_ab_beretta, up_gr_cd_beretta, up_gr_e_beretta, up_gr_f_beretta, up_gr_g_beretta, up_gr_h_beretta
+installed_upgrades      =
+upgrade_scheme          = upgrade_scheme_u10a
+
+;--- scope weapons -------------------------------------------------------------
+holder_range_modifier	= 1.0 ; во сколько раз увеличивается eye_range
+holder_fov_modifier	= 1.0 ; во сколько раз увеличивается eye_fov
+;-------------------------------------------------------------------------------
+
+cost				= 900
+
+ammo_limit		 	= 120
+ammo_current		 	= 96
+ammo_elapsed		 	= 15
+
+ammo_mag_size		 	= 15
+ammo_class		 	= ammo_9x19_fmj, ammo_9x19_pbp
+
+hand_dependence		 	= 1
+single_handed			= 1
+launch_speed                             = 0
+
+slot 			 	= 1
+misfire_probability        = 0.005 ;вероятность осечки при максимальном износе  !!!old - now not working
+;изношенность, при которой появляется шанс осечки
+misfire_start_condition		= 0.6
+;изношеность при которой шанс осечки становится константным
+misfire_end_condition		= 0.1
+;шанс осечки при изношености больше чем misfireStartCondition
+misfire_start_prob	     	= 0.0085
+;шанс осечки при изношености больше чем misfireEndCondition
+misfire_end_prob	     	= 0.085
+;увеличение изношености при одиночном выстреле
+condition_shot_dec      	= 0.0041
+;увеличение изношености при выстреле очередью
+condition_queue_shot_dec	= 0.0041
+
+animation_slot			= 1 ; type of the animation that will be used
+default_to_ruck			= false
+sprint_allowed			= true
+
+
+inv_name			= st_wpn_beretta
+inv_name_short			= st_wpn_beretta
+inv_weight			= 1.0
+
+inv_grid_width			= 2
+inv_grid_height			= 1
+inv_grid_x			= 12
+inv_grid_y			= 8
+
+kill_msg_x			= 200
+kill_msg_y			= 153
+kill_msg_width			= 37
+kill_msg_height			= 24
+
+;-------------------------------------------------------------------------------
+;базовая дисперсия
+fire_dispersion_base	= 0.8 ;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+
+;отдача
+cam_relax_speed         = 8   ;скорость возврата в исходное положение
+cam_relax_speed_ai      = 360
+cam_dispersion          = 0.6 ;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc	= 0.6 ;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac	= 1.0 ;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle		= 5.0 ;максимальный угол отдачи
+cam_max_angle_horz	= 5.0 ;(degree) maximum shot horizontal degree
+cam_step_angle_horz	= 0.6 ;(degree) size of step camera moved in horizontal position while shooting
+
+fire_dispersion_condition_factor = 5	  ;увеличение дисперсии в процентах при максимальном износе
+misfire_probability 		 = 0.005  ;вероятность осечки при максимальном износе
+condition_shot_dec 		 = 0.0005 ;увеличение износа при каждом выстреле
+
+;-------------------------------------------------------------------------------
+; ttc
+hit_power           		= 0.5, 0.5, 0.5, 0.5
+hit_impulse	 		= 75
+hit_type 		        = fire_wound
+
+hit_probability_gd_novice	= 0.80
+hit_probability_gd_stalker	= 0.80
+hit_probability_gd_veteran	= 0.80
+hit_probability_gd_master	= 0.80
+
+PDM_disp_base 			= 1.0
+PDM_disp_vel_factor 		= 0.3
+PDM_disp_accel_factor 		= 0.3
+PDM_disp_crouch	 		= 1.0
+PDM_disp_crouch_no_acc 		= 1.0
+
+use_aim_bullet			= true ;Поддерживается ли первая суппер пуля
+time_to_aim			= 1.0
+
+fire_distance           	= 50
+bullet_speed		 	= 150
+rpm                     	= 270
+rpm_empty_click 	 	= 200
+; end ttc
+
+silencer_hit_power      	= 0.52
+silencer_hit_impulse	 	= 105
+silencer_fire_distance  	= 100
+silencer_bullet_speed		= 240
+
+hud                     	= wpn_beretta_hud
+visual                  	= dynamics\weapons\wpn_beretta92fs\wpn_beretta92fs.ogf
+
+position                	= -0.021, -0.085, 0.0
+orientation             	= 0, 0, 0
+
+fire_point              	= 0.0, 0.133, 0.161
+
+;--STRAP PARAMETERS-----------------------------------------------------------------
+;strap_position         		= -0.18,-0.45,0.2			; position (offset) and orientation of the weapon when it is strapped
+;strap_orientation      		= -10,-5,10					; (3rd person view in degrees)
+;strap_bone0             	= bip01_spine2
+;strap_bone1             	= bip01_spine1
+
+flame_particles         = weapons\generic_weapon05
+smoke_particles         = weapons\generic_shoot_00
+grenade_flame_particles = weapons\generic_weapon01
+
+shell_point             = 0.0, 0.133, 0.047
+shell_dir		 	= 0.0, 0.0, 0.4
+shell_particles	 		= weapons\generic_shells
+
+;-------------------------------------------------------------------------------
+;startup_ammo           	= 90
+
+light_color		 	= 0.6,0.5,0.3
+light_range		 	= 3.0
+light_var_color		 	= 0.05
+light_var_range		 	= 0.5
+light_time 		 	= 0.2
+
+ph_mass                 	= 1
+
+;addons
+scope_status			= 0
+silencer_status			= 2                               ; Было 0, но теперь 2 - глушитель на уровне модели поддерживается
+grenade_launcher_status	= 0
+
+zoom_enabled				= true
+zoom_rotate_time			= 0.25
+scope_zoom_factor	    		= 55
+
+;звуки
+snd_draw					= weapons\generic_sounds\generic_draw_pistol
+snd_holster					= weapons\generic_sounds\generic_hide
+snd_shoot					= weapons\beretta\beretta_shoot
+snd_empty					= weapons\generic_sounds\generic_dry
+snd_reload			        = weapons\beretta\beretta_reload
+snd_reload_empty			= weapons\beretta\beretta_reload_full
+snd_close					= weapons\generic_sounds\generic_hide
+snd_silncer_shot			= weapons\beretta\beretta_shoot_sil
+snd_bore					= $no_sound
+snd_bore1					= $no_sound
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; silencer
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+silencer_name  				= wpn_addon_silencer ; section name for the attachable silencer
+silencer_x 				= 65		     ; offset in inventory icon
+silencer_y 				= -17
+
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time 		= 0.2
+
+[wpn_beretta_hud]:hud_base
+zoom_hide_crosshair			                             = false
+item_visual             		                         = dynamics\weapons\wpn_beretta92fs\wpn_beretta92fs_hud.ogf
+attach_place_idx			                             = 0
+
+hands_position                                           = -0.019000,-0.070700,-0.058999
+hands_orientation                                        = 2.139995,1.020003,-5.849995
+        hands_position_16x9              = 0.014500, -0.082700, 0.000000
+hands_orientation_16x9                                   = 2.139995,1.020003,-5.849995
+
+aim_hud_offset_pos                                       = -0.042275,0.029225,-0.085001
+aim_hud_offset_rot                                       = 0.021926,0.039231,-0.101000
+        aim_hud_offset_pos_16x9          = -0.076900, 0.046300, -0.085001
+aim_hud_offset_rot_16x9                                  = 0.021926,0.039231,-0.101000 
+
+shell_point                                              = 0.017000,0.059000,0.365999
+shell_bone              		                         = wpn_body
+
+fire_point                                               = 0.000000,0.064000,0.433998
+fire_bone               		                         = wpn_body
+
+anm_show				                                 = gwr_beretta_draw, idle
+anm_show_empty				                             = gwr_beretta_draw, idle_empty
+;anm_show_jammed                                         = gwr_beretta_draw, idle_jammed
+
+anm_hide             			                         = gwr_beretta_hide, idle
+anm_hide_empty             		                         = gwr_beretta_hide, idle_empty
+;anm_hide_jammed                                         = gwr_beretta_hide, idle_jammed
+
+anm_idle             			                         = gwr_beretta_idle, idle
+anm_idle_empty             		                         = gwr_beretta_idle, idle_empty
+;anm_idle_jammed             	                         = gwr_beretta_idle, idle_jammed
+
+anm_shoot                                                = gwr_beretta_shoot, shoot
+anm_shoot_sil                                            = gwr_beretta_shoot, shoot
+anm_shoot_aim                                            = gwr_beretta_shoot, shoot
+anm_shoot_aim_sil                                        = gwr_beretta_shoot, shoot
+anm_shoot_aim_scope                                      = gwr_beretta_shoot, shoot
+anm_shoot_aim_scope_sil                                  = gwr_beretta_shoot, shoot
+
+anm_shoot_last                                           = gwr_beretta_shoot_last, shoot_last
+anm_shoot_aim_last                                       = gwr_beretta_shoot_last, shoot_last
+anm_shoot_aim_scope_last                                 = gwr_beretta_shoot_last, shoot_last                               ; Вообще анимации с припиской _jammed можно использовать, но, как оказалось, не на всех пушках есть анимации расклина, поэтому пусть лежат закомментированными (Скиллет имба)
+anm_shoot_last_sil                                       = gwr_beretta_shoot_last, shoot_last
+anm_shoot_aim_scope_last_sil                             = gwr_beretta_shoot_last, shoot_last
+anm_shoot_aim_last_sil                                   = gwr_beretta_shoot_last, shoot_last
+
+anm_idle_aim				                             = gwr_beretta_idle_aim, idle
+anm_idle_aim_empty			                             = gwr_beretta_idle_aim, idle_empty
+;anm_idle_aim_jammed			                         = gwr_beretta_idle_aim, idle_jammed
+
+anm_reload				                                 = gwr_beretta_reload, reload
+anm_reload_empty			                             = gwr_beretta_reload_empty, reload_empty
+;anm_reload_jammed			                             = gwr_beretta_revival, revival
+;anm_reload_jammed_last			                         = gwr_beretta_revival_last, revival_last
+
+anm_idle_moving 			                             = gwr_beretta_walk, idle
+anm_idle_moving_empty 			                         = gwr_beretta_walk, idle_empty
+;anm_idle_moving_jammed 			                     = gwr_beretta_walk, idle_jammed
+
+anm_idle_sprint				                             = gwr_beretta_sprint, idle
+anm_idle_sprint_empty			                         = gwr_beretta_sprint, idle_empty
+;anm_idle_sprint_jammed			                         = gwr_beretta_sprint, idle_jammed
+
+anm_bore				                                 = gwr_beretta_idle, idle
+anm_bore_empty				                             = gwr_beretta_idle, idle_empty
+;anm_bore_jammed				                         = gwr_beretta_idle, idle_jammed
+
+[wpn_beretta_minigame]:wpn_beretta ;new weapon for minigame "Shooting"
+ammo_limit      = 100
+;ammo_mag_size  = 10
+ammo_class      = ammo_minigame
+fire_modes      = 1
+$spawn          = "weapons\wpn_beretta_minigame"
+cost            = 0
+quest_item 	= true
+upgrades           = up_gr_ab_beretta, up_gr_cd_beretta, up_gr_e_beretta, up_gr_f_beretta, up_gr_g_beretta, up_gr_h_beretta
+installed_upgrades = up_b_beretta,up_d_beretta,up_bd_beretta
+upgrade_scheme     = upgrade_scheme_u10a
