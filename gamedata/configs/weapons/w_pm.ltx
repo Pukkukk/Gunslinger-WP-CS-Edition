@@ -1,10 +1,10 @@
 [wpn_pm]:identity_immunities,weapon_probability,default_weapon_params
 GroupControlSection			= spawn_group
 discovery_dependency 		=
-$spawn                  	= "weapons\pm"		; option for Level Editor
-$npc			 			= on							; option for Level Editor
+$spawn                  	= "weapons\pm"
+$npc			 			= on
 $prefetch 					= 8
-scheduled         			= off              		; option for ALife Simulator
+scheduled         			= off
 cform             			= skeleton
 class                   	= WP_PM
 min_radius              	= 0
@@ -13,18 +13,15 @@ description					= st_wpn_pm_descr
 
 ef_weapon_type				= 5
 
-;---DOF-------------------------------------------------------------------------
 zoom_dof					= -1000, 1.0, 1000
 reload_dof					= 0.0, 0.5, 5, 1.7
-;-----------------------------------------------------------------------------
+
 upgrades                = up_gr_ab_pm, up_gr_cd_pm, up_gr_e_pm, up_gr_f_pm, up_gr_g_pm, up_gr_h_pm
 installed_upgrades      =
 upgrade_scheme          = upgrade_scheme_u10a
 
-;--- scope weapons -------------------------------------------------------------
-holder_range_modifier	= 1.0               ; во сколько раз увеличивается eye_range
-holder_fov_modifier		= 1.0              ; во сколько раз увеличивается eye_fov
-;-------------------------------------------------------------------------------
+holder_range_modifier	= 1.0
+holder_fov_modifier		= 1.0
 
 cost					= 300
 
@@ -32,18 +29,12 @@ ammo_limit		 		= 120
 ammo_current		 	= 96
 ammo_elapsed		 	= 8
 
-;изношенность, при которой появляется шанс осечки
-misfire_start_condition		= 0.6
-;изношеность при которой шанс осечки становится константным
-misfire_end_condition		= 0.1
-;шанс осечки при изношености больше чем misfireStartCondition
-misfire_start_prob	     	= 0.007
-;шанс осечки при изношености больше чем misfireEndCondition
-misfire_end_prob	     	= 0.07
-;увеличение изношености при одиночном выстреле
-condition_shot_dec      	= 0.003
-;увеличение изношености при выстреле очередью
-condition_queue_shot_dec	= 0.003
+misfire_start_condition		= 0.6           ;изношенность, при которой появляется шанс осечки
+misfire_end_condition		= 0.1           ;изношеность при которой шанс осечки становится константным
+misfire_start_prob	     	= 0.007         ;шанс осечки при изношености больше чем misfireStartCondition
+misfire_end_prob	     	= 0.07          ;шанс осечки при изношености больше чем misfireEndCondition
+condition_shot_dec      	= 0.003         ;увеличение изношености при одиночном выстреле
+condition_queue_shot_dec	= 0.003         ;увеличение изношености при выстреле очередью
 
 ammo_mag_size		 	= 8
 ammo_class		 		= ammo_9x18_fmj, ammo_9x18_pmm
@@ -52,7 +43,7 @@ hand_dependence		 	= 1
 single_handed			= 1
 
 slot 			 		= 1
-animation_slot			= 1									; type of the animation that will be used
+animation_slot			= 1
 default_to_ruck			= false
 sprint_allowed			= true
 control_inertion_factor	= 1
@@ -71,26 +62,20 @@ kill_msg_y				= 82
 kill_msg_width			= 27
 kill_msg_height			= 23
 
-;-------------------------------------------------------------------------------
-;базовая дисперсия
-fire_dispersion_base	= 0.9 			;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
-
-;отдача
-cam_relax_speed         = 8				;скорость возврата в исходное положение
+fire_dispersion_base	= 0.9
+cam_relax_speed         = 8
 cam_relax_speed_ai      = 360
-cam_dispersion          = 0.5				;увеличения угла (в градусах) с каждым выстрелом
-cam_dispersion_inc		= 0.5				;увеличениe cam_dispersion с каждым выстрелом
-cam_dispersion_frac		= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
-cam_max_angle			= 5.0			;максимальный угол отдачи
-cam_max_angle_horz		= 5.0				;(degree) maximum shot horizontal degree
-cam_step_angle_horz		= 1.0				;(degree) size of step camera moved in horizontal position while shooting
+cam_dispersion          = 0.5
+cam_dispersion_inc		= 0.5
+cam_dispersion_frac		= 1.0
+cam_max_angle			= 5.0
+cam_max_angle_horz		= 5.0
+cam_step_angle_horz		= 1.0
 
-fire_dispersion_condition_factor = 5		;увеличение дисперсии в процентах при максимальном износе
+fire_dispersion_condition_factor = 5
 
-misfire_probability        = 0.005 ;вероятность осечки при максимальном износе  !!!old - now not working
+misfire_probability        = 0.005 ;  !!!old - now not working
 
-;-------------------------------------------------------------------------------
-; ttc
 hit_power           		= 0.5, 0.5, 0.5, 0.5
 hit_impulse	 		 		= 75
 hit_type 					= fire_wound
@@ -106,21 +91,19 @@ PDM_disp_accel_factor 		= 0.2
 PDM_disp_crouch	 			= 1.0
 PDM_disp_crouch_no_acc 		= 1.0
 
-use_aim_bullet				= true		;Поддерживается ли первая суппер пуля
+use_aim_bullet				= true
 time_to_aim					= 1.0
 
 fire_distance           = 30
 bullet_speed		 	= 200
 rpm                     = 250
 rpm_empty_click 	 	= 200
-; end ttc
 
 silencer_hit_power      	= 0.50
 silencer_hit_impulse	 	= 80
 silencer_fire_distance  	= 100
 silencer_bullet_speed		= 220
 
-;-------------------------------------------------------------------------------
 hud                     	= wpn_pm_hud
 visual                  	= dynamics\weapons\wpn_pm\wpn_pm.ogf
 
@@ -129,12 +112,6 @@ orientation             	= 0, 0, 0
 
 fire_point              	= 0.0, 0.133, 0.161
 
-;--STRAP PARAMETERS-----------------------------------------------------------------
-;strap_position         	= -0.1,-0.45,0.2			; position (offset) and orientation of the weapon when it is strapped
-;strap_orientation      	= 1.57,0,0						; (3rd person view)
-;strap_bone0					= bip01_spine2
-;strap_bone1					= bip01_spine1
-
 flame_particles		   	= weapons\generic_weapon03
 smoke_particles		   	= weapons\generic_shoot_00
 
@@ -142,19 +119,14 @@ shell_point		 				= 0.0, 0.133, 0.047
 shell_dir		 				= 0.0, 0.0, 0.4
 shell_particles	 			= weapons\generic_shells
 
-;-------------------------------------------------------------------------------
-;startup_ammo           	= 90
-
-light_color		 				= 0.6,0.5,0.3
-light_range		 				= 3.0
+light_color		 			= 0.6,0.5,0.3
+light_range		 			= 3.0
 light_var_color		 		= 0.05
 light_var_range		 		= 0.5
-light_time 		 				= 0.2
+light_time 		 			= 0.2
 
 ph_mass			 				= 1
-;cost			 					= 350
 
-;addons
 scope_status				= 0
 silencer_status				= 0                               ; Было 2, но теперь 0 - глушитель на уровне модели не поддерживается
 grenade_launcher_status		= 0
@@ -171,6 +143,8 @@ snd_reload					= weapons\pm\pm_reload
 snd_reload_empty			= weapons\pm\pm_reload_full
 snd_close					= weapons\generic_sounds\generic_close
 snd_silncer_shot			= weapons\pm\pm_shoot_sil
+snd_reload_jammed           = weapons\generic_sounds\generic_revival_pistol
+snd_reload_jammed_last      = weapons\generic_sounds\generic_revival_pistol
 
 silencer_name  				= wpn_addon_silencer
 silencer_x 					= 39
@@ -208,15 +182,15 @@ fire_bone               		                             = wpn_body
 
 anm_show				                                     = gwr_pm_draw, idle
 anm_show_empty				                                 = gwr_pm_draw, idle_empty
-;anm_show_jammed                                             = gwr_pm_draw, idle_jammed
+anm_show_jammed                                              = gwr_pm_draw, idle_jammed
 
 anm_hide             			                             = gwr_pm_hide, idle
 anm_hide_empty             		                             = gwr_pm_hide, idle_empty
-;anm_hide_jammed                                             = gwr_pm_hide, idle_jammed
+anm_hide_jammed                                              = gwr_pm_hide, idle_jammed
 
 anm_idle             			                             = gwr_pm_idle, idle
 anm_idle_empty             		                             = gwr_pm_idle, idle_empty
-;anm_idle_jammed             	                             = gwr_pm_idle, idle_jammed
+anm_idle_jammed             	                             = gwr_pm_idle, idle_jammed
 
 anm_shoot                                                    = gwr_pm_shoot, shoot
 anm_shoot_sil                                                = gwr_pm_shoot, shoot
@@ -227,31 +201,31 @@ anm_shoot_aim_scope_sil                                      = gwr_pm_shoot, sho
 
 anm_shoot_last                                               = gwr_pm_shoot, shoot_last
 anm_shoot_aim_last                                           = gwr_pm_shoot, shoot_last
-anm_shoot_aim_scope_last                                     = gwr_pm_shoot, shoot_last                               ; Вообще анимации с припиской _jammed можно использовать, но, как оказалось, не на всех пушках есть анимации расклина, поэтому пусть лежат закомментированными (не забыть сходить выпить воды)
+anm_shoot_aim_scope_last                                     = gwr_pm_shoot, shoot_last
 anm_shoot_last_sil                                           = gwr_pm_shoot, shoot_last
 anm_shoot_aim_scope_last_sil                                 = gwr_pm_shoot, shoot_last
 anm_shoot_aim_last_sil                                       = gwr_pm_shoot, shoot_last
 
 anm_idle_aim				                                 = gwr_pm_idle_aim, idle
 anm_idle_aim_empty			                                 = gwr_pm_idle_aim, idle_empty
-;anm_idle_aim_jammed			                             = gwr_pm_idle_aim, idle_jammed
+anm_idle_aim_jammed			                                 = gwr_pm_idle_aim, idle_jammed
 
 anm_reload				                                     = gwr_pm_reload, reload
 anm_reload_empty			                                 = gwr_pm_reload_empty, reload_empty
-;anm_reload_jammed			                                 = gwr_pm_revival, revival
-;anm_reload_jammed_last			                             = gwr_pm_revival_last, revival_last
+anm_reload_jammed			                                 = gwr_pm_revival, revival
+anm_reload_jammed_last			                             = gwr_pm_revival_last, revival_last
 
 anm_idle_moving 			                                 = gwr_pm_walk, idle
 anm_idle_moving_empty 			                             = gwr_pm_walk, idle_empty
-;anm_idle_moving_jammed 			                         = gwr_pm_walk, idle_jammed
+anm_idle_moving_jammed 			                             = gwr_pm_walk, idle_jammed
 
 anm_idle_sprint				                                 = gwr_pm_sprint, idle
 anm_idle_sprint_empty			                             = gwr_pm_sprint, idle_empty
-;anm_idle_sprint_jammed			                             = gwr_pm_sprint, idle_jammed
+anm_idle_sprint_jammed			                             = gwr_pm_sprint, idle_jammed
 
 anm_bore				                                     = gwr_pm_idle, idle
 anm_bore_empty				                                 = gwr_pm_idle, idle_empty
-;anm_bore_jammed				                             = gwr_pm_idle, idle_jammed
+anm_bore_jammed				                                 = gwr_pm_idle, idle_jammed
 
 hud_collision_enabled			= true
 hud_collision_offset_pos		= 0,-0.5,0
@@ -259,7 +233,7 @@ hud_collision_offset_pos_16x9		= 0,-0.5,0
 hud_collision_offset_rot		= -0.8,0,0
 hud_collision_offset_rot_16x9		= -0.8,0,0
 
-[wpn_pm_minigame]:wpn_pm    ;new weapon for minigame "Shooting"
+[wpn_pm_minigame]:wpn_pm
 ammo_limit      = 100
 ;ammo_mag_size   = 10
 ammo_class      = ammo_minigame
@@ -272,14 +246,14 @@ installed_upgrades      = up_b_pm,up_d_pm,up_bd_pm
 upgrade_scheme          = upgrade_scheme_u10a
 
 [wpn_pm_up]:wpn_pm
-$spawn                  	= "weapons\pm_up"		; option for Level Editor
+$spawn                  	= "weapons\pm_up"
 
 upgrades                = up_gr_ab_pm, up_gr_cd_pm, up_gr_e_pm, up_gr_f_pm, up_gr_g_pm, up_gr_h_pm
 installed_upgrades      = up_e_pm,up_f_pm,up_h_pm
 upgrade_scheme          = upgrade_scheme_u10a
 
 [wpn_pm_9x19]:wpn_pm
-$spawn                  	= "weapons\pm_9x19"		; option for Level Editor
+$spawn                  	= "weapons\pm_9x19"
 
 upgrades                = up_gr_ab_pm, up_gr_cd_pm, up_gr_e_pm, up_gr_f_pm, up_gr_g_pm, up_gr_h_pm
 installed_upgrades      = up_g_pm,up_h_pm
